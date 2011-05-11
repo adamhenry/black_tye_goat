@@ -1,4 +1,6 @@
 BlackTyeGoat::Application.routes.draw do
+  resources :jobs
+
   resources :customers
 
   # The priority is based upon order of creation:

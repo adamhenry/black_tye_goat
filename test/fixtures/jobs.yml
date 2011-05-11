@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  customer_id: 1
+  deadline: 2011-05-10
+  completed: false
+  page_count: 1
+  price_per_page: MyString
+  paid: false
+  input_file: MyString
+  output_file: MyString
+
+two:
+  customer_id: 1
+  deadline: 2011-05-10
+  completed: false
+  page_count: 1
+  price_per_page: MyString
+  paid: false
+  input_file: MyString
+  output_file: MyString
