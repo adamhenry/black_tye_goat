@@ -1,4 +1,5 @@
 BlackTyeGoat::Application.routes.draw do
+  match '/jobs/pending' => 'jobs#pending'
   resources :jobs
 
   resources :customers

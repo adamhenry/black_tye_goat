@@ -1,6 +1,5 @@
-<h1>Listing jobs</h1>
+<h1>Listing pending jobs</h1>
 
-<% if @jobs do %>
 <table>
   <tr>
     <th>Customer</th>
@@ -18,7 +17,7 @@
 
 <% @jobs.each do |job| %>
   <tr>
-    <td><%= job.customerName %></td>
+    <td><%= job.customer_id %></td>
     <td><%= job.deadline %></td>
     <td><%= job.completed %></td>
     <td><%= job.page_count %></td>
@@ -32,7 +31,6 @@
   </tr>
 <% end %>
 </table>
-<% end %>
 
 <br />
 

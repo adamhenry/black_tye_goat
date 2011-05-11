@@ -1,6 +1,15 @@
 class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.xml
+  def pending
+    @jobs = Job.where( :completed => false )
+
+    respond_to do |format|
+      format.html # pending.html.erb
+      format.xml  { render :xml => @jobs }
+    end
+  end
+
   def index
     @jobs = Job.all
 
@@ -25,7 +34,6 @@ class JobsController < ApplicationController
   # GET /jobs/new.xml
   def new
     @job = Job.new
-    @customer = AController.get_login_of_customer
 
     respond_to do |format|
       format.html # new.html.erb
