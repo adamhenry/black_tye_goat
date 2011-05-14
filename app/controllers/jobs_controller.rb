@@ -34,6 +34,7 @@ class JobsController < ApplicationController
   # GET /jobs/new.xml
   def new
     @job = Job.new
+    @new = true
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,11 +45,15 @@ class JobsController < ApplicationController
   # GET /jobs/1/edit
   def edit
     @job = Job.find(params[:id])
+    @edit = true
   end
 
   # POST /jobs
   # POST /jobs.xml
   def create
+    if params[:job][:customer].blank?
+      params[:job][:customer] = current_customer
+    end
     @job = Job.new(params[:job])
 
     respond_to do |format|
@@ -65,6 +70,9 @@ class JobsController < ApplicationController
   # PUT /jobs/1
   # PUT /jobs/1.xml
   def update
+    if params[:job][:customer].blank?
+      params[:job][:customer] = current_customer
+    end
     @job = Job.find(params[:id])
 
     respond_to do |format|

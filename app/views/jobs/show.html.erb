@@ -1,45 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
 
-<p>
+<div>
   <b>Customer:</b>
-  <%= @job.customer_id %>
-</p>
+  <%= @job.customer_name %>
+</div>
 
-<p>
+<div>
   <b>Deadline:</b>
   <%= @job.deadline %>
-</p>
+</div>
 
-<p>
-  <b>Completed:</b>
-  <%= @job.completed %>
-</p>
-
-<p>
+<div>
   <b>Page count:</b>
   <%= @job.page_count %>
-</p>
+</div>
 
-<p>
+<div>
   <b>Price per page:</b>
   <%= @job.price_per_page %>
-</p>
+</div>
 
-<p>
+<div>
+  <b>Total price:</b>
+  <%= @job.total_price %>
+</div>
+
+<div>
+  <b>Completed:</b>
+  <%= @job.completed %>
+</div>
+
+<div>
   <b>Paid:</b>
   <%= @job.paid %>
-</p>
+</div>
 
-<p>
+<div>
   <b>Input file:</b>
   <%= @job.input_file %>
-</p>
+</div>
 
-<p>
+<div>
   <b>Output file:</b>
   <%= @job.output_file %>
-</p>
+</div>
 
 
 <%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<%= link_to 'Back', customer_path(current_customer) %>

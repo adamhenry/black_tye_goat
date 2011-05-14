@@ -13,7 +13,7 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.xml
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   # POST /customers
@@ -44,7 +44,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to(@customer, :notice => 'Customer was successfully created.') }
+        format.html { redirect_to(@customer, :notice => 'Registration successful.') }
         format.xml  { render :xml => @customer, :status => :created, :location => @customer }
       else
         format.html { render :action => "new" }
@@ -56,11 +56,11 @@ class CustomersController < ApplicationController
   # PUT /customers/1
   # PUT /customers/1.xml
   def update
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
 
     respond_to do |format|
       if @customer.update_attributes(params[:customer])
-        format.html { redirect_to(@customer, :notice => 'Customer was successfully updated.') }
+        format.html { redirect_to(@customer, :notice => 'Successfully updated profile.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

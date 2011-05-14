@@ -14,6 +14,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Deadline</th>
     <th>Completed</th>
     <th>Page count</th>
@@ -26,8 +27,13 @@
     <th></th>
   </tr>
 
-<% @customer.jobs.each do |job| %>
+<% @customer.job_groups.each do |group,jobs| %>
   <tr>
+    <th><%= group %></th>
+  </tr>
+<% jobs.each do |job| %>
+  <tr>
+    <th></th>
     <td><%= job.deadline %></td>
     <td><%= job.completed %></td>
     <td><%= job.page_count %></td>
@@ -40,9 +46,15 @@
     <td><%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+<% end %>
+  <tr>
+    <td> <%= link_to 'New Job', new_job_path %> </td>
+  </tr>
 </table>
 
 <br />
 
+<% if admin? %>
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
+<% end %>

@@ -2,9 +2,13 @@
 
 <table>
   <tr>
-    <th>Email</th>
     <th>Name</th>
-    <th>Password</th>
+    <th>Login</th>
+    <th>Email</th>
+    <th>Jobs</th>
+    <th>Pending</th>
+    <th>Due</th>
+    <th>Paid</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +16,13 @@
 
 <% @customers.each do |customer| %>
   <tr>
-    <td><%= customer.email %></td>
     <td><%= customer.name %></td>
-    <td><%= customer.password %></td>
+    <td><%= customer.login %></td>
+    <td><%= customer.email %></td>
+    <td><%= customer.jobs_count %></td>
+    <td><%= customer.jobs_pending.count %></td>
+    <td><%= customer.jobs_due.count %></td>
+    <td><%= customer.jobs_paid.count %></td>
     <td><%= link_to 'Show', customer %></td>
     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
     <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td>

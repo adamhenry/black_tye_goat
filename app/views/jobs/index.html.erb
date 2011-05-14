@@ -3,37 +3,29 @@
 <% if @jobs %>
 <table>
   <tr>
+    <th>Job</th>
     <th>Customer</th>
-    <th>Deadline</th>
-    <th>Completed</th>
     <th>Page count</th>
     <th>Price per page</th>
+    <th>Deadline</th>
+    <th>Completed</th>
     <th>Paid</th>
-    <th>Input file</th>
-    <th>Output file</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
 <% @jobs.each do |job| %>
   <tr>
-    <td><%= job.customerName %></td>
-    <td><%= job.deadline %></td>
-    <td><%= job.completed %></td>
+    <td><%= link_to job.input_file, job %></td>
+    <td><%= link_to job.customer_name, customer_path(job.customer) %></td>
     <td><%= job.page_count %></td>
     <td><%= job.price_per_page %></td>
+    <td><%= job.deadline %></td>
+    <td><%= job.completed %></td>
     <td><%= job.paid %></td>
-    <td><%= job.input_file %></td>
-    <td><%= job.output_file %></td>
-    <td><%= link_to 'Show', job %></td>
     <td><%= link_to 'Edit', edit_job_path(job) %></td>
-    <td><%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 <% end %>
 
 <br />
-
-<%= link_to 'New Job', new_job_path %>

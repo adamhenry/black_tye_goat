@@ -1,8 +1,12 @@
 BlackTyeGoat::Application.routes.draw do
-  match '/jobs/pending' => 'jobs#pending'
-  resources :jobs
+  match '/jobs/pending'
+  match '/login' => 'customer_sessions#new', :as => 'login'
+  #match '/customer_sessions/create', :to => 'customer_sessions#create', :as => 'customer_sessions'
+  match '/logout' => 'customer_sessions#destroy', :as => 'logout'
 
+  resources :jobs
   resources :customers
+  resources :customer_sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

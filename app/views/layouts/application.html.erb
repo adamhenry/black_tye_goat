@@ -7,6 +7,16 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id="customer_nav">
+  <% if current_customer %>
+    Welcome <%= current_customer.name %> |
+    <%= link_to "Edit Profile", edit_customer_path(:current) %> |
+    <%= link_to "Logout", logout_path %>
+  <% else %>
+    <%= link_to "Register", new_customer_path %> |
+    <%= link_to "Login", login_path %>
+  <% end %>
+  </div>
 
 <%= yield %>
 
